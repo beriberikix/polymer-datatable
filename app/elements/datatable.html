@@ -1,0 +1,41 @@
+<polymer-element name="datatable-element"  attributes="thead tbody">
+  <template>
+    <style>
+      @host { :scope {display: block;} }
+    </style>
+    <table>
+      <template if="{{ thead }}" >
+        <thead>
+          <tr>
+            <template repeat="{{ header in thead }}">
+              <th>{{header}}</th>
+            </template>
+          </tr>
+        </thead>
+      </template>
+      <tbody>
+        <template repeat="{{ tr in tbody }}">
+          <tr>
+            <template repeat="{{ td in tr }}">
+              <td>{{ td }}</td>
+            </template>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    <!-- <div>{{ tbody.length }} rows</div> -->
+  </template>
+  <script>
+    Polymer('datatable-element', {
+      //applyAuthorStyles: true,
+      //resetStyleInheritance: true,
+      created: function() { },
+      enteredView: function() { },
+      leftView: function() { },
+      attributeChanged: function(attrName, oldVal, newVal) { },
+      addRow: function(row) {
+        this.tbody.push(row);
+      }
+    });
+  </script>
+</polymer-element>
