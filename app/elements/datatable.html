@@ -35,6 +35,16 @@
       attributeChanged: function(attrName, oldVal, newVal) { },
       addRow: function(row) {
         this.tbody.push(row);
+      },
+      sortAscending: function(columnIndex) {
+        this.tbody.sort(function(a, b) {
+          return a[columnIndex] > b[columnIndex] ? 1 : -1;
+        });
+      },
+      sortDescending: function(columnIndex) {
+        this.tbody.sort(function(a, b) {
+          return a[columnIndex] < b[columnIndex] ? 1 : -1;
+        });
       }
     });
   </script>
